@@ -13,9 +13,32 @@ int main() {
 	linkedListOne.PrintList();
 	cout << "Size: " << linkedListOne.GetSize() << endl;
 
+	//buscando un elmento que si esta en la lista e imprimiendolo con formato
 	Node<int>* nodeFound = linkedListOne.Search(6);
 	printFound(nodeFound);
 
+	//eliminando elementos prexistentes
+	linkedListOne.PopBack();
+	linkedListOne.PrintList();
+	cout << "Size: " << linkedListOne.GetSize() << endl;
+
+	linkedListOne.PopBack();
+	linkedListOne.PrintList();
+	cout << "Size: " << linkedListOne.GetSize() << endl;
+
+	linkedListOne.PopBack();
+	linkedListOne.PrintList();
+	cout << "Size: " << linkedListOne.GetSize() << endl;
+
+	linkedListOne.PopBack();
+	linkedListOne.PrintList();
+	cout << "Size: " << linkedListOne.GetSize() << endl;
+
+	linkedListOne.PopBack();
+	linkedListOne.PrintList();
+	cout << "Size: " << linkedListOne.GetSize() << endl;
+
+	//tratando de eliminar elementos aunque la lista este vacia para probar validacion
 	linkedListOne.PopBack();
 	linkedListOne.PrintList();
 	cout << "Size: " << linkedListOne.GetSize() << endl;
@@ -44,87 +67,77 @@ int main() {
 	linkedListOne.PrintList();
 	cout << "Size: " << linkedListOne.GetSize() << endl;
 
-	linkedListOne.PopBack();
-	linkedListOne.PrintList();
-	cout << "Size: " << linkedListOne.GetSize() << endl;
-
-	linkedListOne.PopBack();
-	linkedListOne.PrintList();
-	cout << "Size: " << linkedListOne.GetSize() << endl;
-
-	linkedListOne.PopBack();
-	linkedListOne.PrintList();
-	cout << "Size: " << linkedListOne.GetSize() << endl;
-
-	linkedListOne.PopBack();
-	linkedListOne.PrintList();
-	cout << "Size: " << linkedListOne.GetSize() << endl;
-
-	linkedListOne.PopBack();
-	linkedListOne.PrintList();
-	cout << "Size: " << linkedListOne.GetSize() << endl;
-
+	//buscando un elemento que no exsite en la lista para checar validacion
 	Node<int>* nodeFTwo = linkedListOne.Search(8);
 	printFound(nodeFTwo);
 }
 
+//definiciones de los metodos de la clase LinkedList
 template <typename T>
 void LinkedList<T>::PushBack(T data) {
-	Node<T>* newNode = new Node<T>();
+	Node<T>* newNode = new Node<T>(); //creando un nuevo nodo de tipo T
 	newNode->data = data;
 
-	if (first == nullptr) {
-		first = newNode;
+	if (first == nullptr) /*si la lista esta vacia*/ {
+		first = newNode; //primer nodo de la lista es el nuevo nodo
+		
+		/*como es el unico nodo, es el primero y ultimo elemento
+		y su siguiente nodo es nullptr*/
 		first->next = nullptr;
 		last = first;
-		first->predecessor = nullptr;
-	} else {
-		last->next = newNode;
-		newNode->next = nullptr;
-		newNode->predecessor = last;
-		last = newNode;
+
+		first->predecessor = nullptr; //no tiene nodo anterior por ser primero
+	} else /*si no esta vacia*/ {
+		last->next = newNode; //el ultimo nodo apunta al nuevo nodo
+		newNode->next = nullptr; // el nuevo nodo apunta a vacio ya que va a ser el ultimo
+		newNode->predecessor = last; //el nodo anterior a newNode va ser el que ya no va a ser ultimo
+		last = newNode; // el nuevo ultimo es newNode
 	}
-	size++;
+	size++; //se aumenta el tamano de la lista cada vez que se invoca PushBack
 }
 
 template <typename T>
 void LinkedList<T>::PrintList() {	
-	cout << "{";
-	Node<T>* iterator = first;
-	if (iterator == nullptr) {
-		cout << "}" << endl;
-		return;
+	cout << "{"; // si o si, siempre se imprimira la apertura de la lista
+	Node<T>* iterator = first; //ocupamos un iterator para transverse la lista
+	if (iterator == nullptr) /*si lista esta vacia*/ {
+		cout << "}" << endl; // cerrar inmediatamente la lista y no imprimir ningun elemento
+		return; //para salida forzosa de la funcion
 	}
-	while (iterator -> next != nullptr) {
-		cout << iterator->data << ", ";
-		iterator = iterator->next;
+	//codigo inferior se ejecuta si la lista no esta vacia:
+	while (iterator -> next != nullptr) /*si no es el ultimo elemento*/ {
+		cout << iterator->data << ", "; // imprimir el dato del nodo actual con coma para separar si contiguo siguiente
+		iterator = iterator->next; 
 	}
-	cout << iterator->data << "}" << endl;
+	//forzosamente despues del while, el iterador es el ultimo elemento:
+	cout << iterator->data << "}" << endl; //imprimir el dato del ultimo elemento y cerrar la lista
 }
 
 template <typename T>
 void LinkedList<T>::PopBack() {
-	if (first == nullptr || last == nullptr) {
+	//validacion:
+	if (first == nullptr) /*si la lista esta vacia*/ {
 		cout << "No hay elementos que eliminar" << endl;
-		return;
+		return; //salida forzosa de la funcion
 	}
 
-	if (last -> predecessor != nullptr) {
-		Node<T>* copyLast = last;
-		last = copyLast->predecessor;
-		delete copyLast;
-		copyLast = nullptr;
-		last->next = nullptr;
-		size--;
-	} else {
+	if (last -> predecessor != nullptr) /*si la lista no tiene un solo elemento*/ {
+		Node<T>* copyLast = last; //copyLast es un apuntador auxilar para actualizar quien es el ultimo
+		last = copyLast->predecessor; //el nuevo ultimo es el penultimo
+		delete copyLast; //eliminamos el que era anteriormente el ultimo 
+		copyLast = nullptr; // para evitar que copyLast apunte a una localidad de memoria invalida
+		last->next = nullptr; //el siguiente nodo del nuevo ultimo nodo es nada
+		size--; //reducir la cuenta del tamano de la lista ligada una unidad 
+	} else /*si solo hay un elemento*/ {
+		//lo siguiente es para entendimiento del programador:
 		cout << "------------------------------------------------------------" << endl;
 		cout << "Proof last and first point to the same memory address:" << endl;
 		cout << "last: "  << last << endl;
 		cout << "first: " << first << endl;
 		cout << "------------------------------------------------------------" << endl;
 
-		delete first;
-		first = nullptr; 
+		delete first; //liberamos la localidad de memoria que apunta first
+		first = nullptr; //para evitar un dangling pointer
 		last = nullptr; //placing null to also last. Because we eliminated first, last will point to an invalid address
 		size--;
 	}
@@ -132,31 +145,35 @@ void LinkedList<T>::PopBack() {
 
 template <typename T>
 int LinkedList<T>::GetSize() {
+	//getter
 	return size;
 }
 
 template <typename T>
 Node<T>* LinkedList<T>::Search(T data) {
-	if (first == nullptr) {
-		return nullptr;
+	if (first == nullptr) /*si la lista esta vacia*/ {
+		return nullptr; //regresar un vacio como "invalido"
 	}
 	
 	Node<T>* iterator = first;
 
 	while (iterator->data != data && iterator->next != nullptr) {
+		/*reccorrer la lista hasta que encuentre un nodo con el dato buscado 
+		o que sea el ultimo nodo*/
 		iterator = iterator->next;
 	}
 
-	if (iterator->data == data) {
-		return iterator;
+	if (iterator->data == data) /*si el nodo "x" tiene el dato buscado*/ {
+		return iterator; //regresar el nodo "x" con el dato encontrado
 	}
-	return nullptr;
+	return nullptr;//si llego al ultimo nodo y no encontro nada, regresa nullptr
 }
 
-
+//definicion de funciones para usar en main
 template <typename T>
 void printFound(Node<T>* nodeFound) {
-	string result = (nodeFound != nullptr) ? to_string(nodeFound->data) : "not found.";
+	/*esta funcion se complementa con LinkedList::Search()*/
+	string result = (nodeFound != nullptr) /*si la busqueda fue exitosa*/ ? to_string(nodeFound->data) /*convertir dato del nodo encontrado a string*/ : "not found.";
 	cout << "The node found is: " << result << endl;
 }
 
