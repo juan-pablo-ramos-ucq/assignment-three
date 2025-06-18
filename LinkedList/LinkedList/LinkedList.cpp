@@ -1,5 +1,6 @@
 #include "LinkedList.h"
 #include <iostream>
+#include <string>
 using namespace std;
 
 int main() {
@@ -12,9 +13,8 @@ int main() {
 	linkedListOne.PrintList();
 	cout << "Size: " << linkedListOne.GetSize() << endl;
 
-	linkedListOne.PopBack();
-	linkedListOne.PrintList();
-	cout << "Size: " << linkedListOne.GetSize() << endl;
+	Node<int>* nodeFound = linkedListOne.Search(6);
+	printFound(nodeFound);
 
 	linkedListOne.PopBack();
 	linkedListOne.PrintList();
@@ -59,6 +59,13 @@ int main() {
 	linkedListOne.PopBack();
 	linkedListOne.PrintList();
 	cout << "Size: " << linkedListOne.GetSize() << endl;
+
+	linkedListOne.PopBack();
+	linkedListOne.PrintList();
+	cout << "Size: " << linkedListOne.GetSize() << endl;
+
+	Node<int>* nodeFTwo = linkedListOne.Search(8);
+	printFound(nodeFTwo);
 }
 
 template <typename T>
@@ -128,6 +135,30 @@ int LinkedList<T>::GetSize() {
 	return size;
 }
 
+template <typename T>
+Node<T>* LinkedList<T>::Search(T data) {
+	if (first == nullptr) {
+		return nullptr;
+	}
+	
+	Node<T>* iterator = first;
+
+	while (iterator->data != data && iterator->next != nullptr) {
+		iterator = iterator->next;
+	}
+
+	if (iterator->data == data) {
+		return iterator;
+	}
+	return nullptr;
+}
+
+
+template <typename T>
+void printFound(Node<T>* nodeFound) {
+	string result = (nodeFound != nullptr) ? to_string(nodeFound->data) : "not found.";
+	cout << "The node found is: " << result << endl;
+}
 
 
 

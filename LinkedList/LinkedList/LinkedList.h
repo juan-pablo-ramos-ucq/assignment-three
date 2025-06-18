@@ -27,5 +27,8 @@ class LinkedList {
 		void PrintList();
 		void PopBack();
 		int GetSize();
+		Node<T>* Search(T data);
 };
 
+template <typename T>
+void printFound(Node<T>*);
