@@ -1,2 +1,5 @@
-# linked-list
-My own understanding and implementation of linked list
+# Templates, Dynamic Array, Linked List, and Preprocessor Directives
+This repository is my own understanding of these matters.
+
+## Preprocessor Directives ##
+Moves - the individual element copies done by the Move() method throughout the program
