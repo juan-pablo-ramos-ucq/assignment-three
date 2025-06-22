@@ -2,7 +2,7 @@
 #include <iostream>
 
 template <typename T>
-class Node  {
+class Node {
 	public:
 		T data;
 		Node<T>* next;
@@ -10,8 +10,8 @@ class Node  {
 };
 
 template <typename T>
-class LinkedList {	
-	protected: 
+class LinkedList {
+	protected:
 		Node<T>* first;
 		Node<T>* last;
 		int size;
@@ -28,7 +28,11 @@ class LinkedList {
 		void PopBack();
 		int GetSize();
 		Node<T>* Search(T data);
+		void PopFront();
+		void PushFront(T data);
 };
 
 template <typename T>
 void printFound(Node<T>*);
+
+void Linked();
