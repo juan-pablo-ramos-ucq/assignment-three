@@ -5,7 +5,6 @@ using namespace std;
 
 int main() {
 	cout << "------------------- Dynamic Array (Vector) Exercise ------------------- " << endl;
-
 	Dynamic();
 
 	cout << endl;

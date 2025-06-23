@@ -18,6 +18,10 @@ class DynamicArray {
 			arr = new T[capacity](); // the () are for initializing to default type values all array elements
 		}
 
+		~DynamicArray() {
+			delete[] arr;
+		}
+
 		void PushBack(T pT);
 		void PopBack();
 		void ShrinkToFit();

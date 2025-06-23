@@ -4,149 +4,153 @@
 using namespace std;
 
 void Linked() {
-	LinkedList<int> linkedListOne;
-	linkedListOne.PushBack(10);
-	linkedListOne.PushBack(5);
-	linkedListOne.PushBack(3);
-	linkedListOne.PushBack(7);
-	linkedListOne.PushBack(6);
-	linkedListOne.PrintList();
-	cout << "Size: " << linkedListOne.GetSize() << endl;
+	LinkedList<int>* linkedListOne = new LinkedList<int>();
+	linkedListOne->PushBack(10);
+	linkedListOne->PushBack(5);
+	linkedListOne->PushBack(3);
+	linkedListOne->PushBack(7);
+	linkedListOne->PushBack(6);
+	linkedListOne->PrintList();
+	cout << "Size: " << linkedListOne->GetSize() << endl;
 
 	//buscando un elmento que si esta en la lista e imprimiendolo con formato
-	Node<int>* nodeFound = linkedListOne.Search(6);
+	Node<int>* nodeFound = linkedListOne->Search(6);
 	printFound(nodeFound);
 
 	//eliminando elementos prexistentes
-	linkedListOne.PopBack();
-	linkedListOne.PrintList();
-	cout << "Size: " << linkedListOne.GetSize() << endl;
+	linkedListOne->PopBack();
+	linkedListOne->PrintList();
+	cout << "Size: " << linkedListOne->GetSize() << endl;
 
-	linkedListOne.PopBack();
-	linkedListOne.PrintList();
-	cout << "Size: " << linkedListOne.GetSize() << endl;
+	linkedListOne->PopBack();
+	linkedListOne->PrintList();
+	cout << "Size: " << linkedListOne->GetSize() << endl;
 
-	linkedListOne.PopBack();
-	linkedListOne.PrintList();
-	cout << "Size: " << linkedListOne.GetSize() << endl;
+	linkedListOne->PopBack();
+	linkedListOne->PrintList();
+	cout << "Size: " << linkedListOne->GetSize() << endl;
 
-	linkedListOne.PopBack();
-	linkedListOne.PrintList();
-	cout << "Size: " << linkedListOne.GetSize() << endl;
+	linkedListOne->PopBack();
+	linkedListOne->PrintList();
+	cout << "Size: " << linkedListOne->GetSize() << endl;
 
-	linkedListOne.PopBack();
-	linkedListOne.PrintList();
-	cout << "Size: " << linkedListOne.GetSize() << endl;
+	linkedListOne->PopBack();
+	linkedListOne->PrintList();
+	cout << "Size: " << linkedListOne->GetSize() << endl;
 
 	//tratando de eliminar elementos aunque la lista este vacia para probar validacion
-	linkedListOne.PopBack();
-	linkedListOne.PrintList();
-	cout << "Size: " << linkedListOne.GetSize() << endl;
+	linkedListOne->PopBack();
+	linkedListOne->PrintList();
+	cout << "Size: " << linkedListOne->GetSize() << endl;
 
-	linkedListOne.PopBack();
-	linkedListOne.PrintList();
-	cout << "Size: " << linkedListOne.GetSize() << endl;
+	linkedListOne->PopBack();
+	linkedListOne->PrintList();
+	cout << "Size: " << linkedListOne->GetSize() << endl;
 
-	linkedListOne.PopBack();
-	linkedListOne.PrintList();
-	cout << "Size: " << linkedListOne.GetSize() << endl;
+	linkedListOne->PopBack();
+	linkedListOne->PrintList();
+	cout << "Size: " << linkedListOne->GetSize() << endl;
 
-	linkedListOne.PopBack();
-	linkedListOne.PrintList();
-	cout << "Size: " << linkedListOne.GetSize() << endl;
+	linkedListOne->PopBack();
+	linkedListOne->PrintList();
+	cout << "Size: " << linkedListOne->GetSize() << endl;
 
-	linkedListOne.PopBack();
-	linkedListOne.PrintList();
-	cout << "Size: " << linkedListOne.GetSize() << endl;
+	linkedListOne->PopBack();
+	linkedListOne->PrintList();
+	cout << "Size: " << linkedListOne->GetSize() << endl;
 
-	linkedListOne.PopBack();
-	linkedListOne.PrintList();
-	cout << "Size: " << linkedListOne.GetSize() << endl;
+	linkedListOne->PopBack();
+	linkedListOne->PrintList();
+	cout << "Size: " << linkedListOne->GetSize() << endl;
 
-	linkedListOne.PopBack();
-	linkedListOne.PrintList();
-	cout << "Size: " << linkedListOne.GetSize() << endl;
+	linkedListOne->PopBack();
+	linkedListOne->PrintList();
+	cout << "Size: " << linkedListOne->GetSize() << endl;
 
 	//buscando un elemento que no exsite en la lista para checar validacion
-	Node<int>* nodeFTwo = linkedListOne.Search(8);
+	Node<int>* nodeFTwo = linkedListOne->Search(8);
 	printFound(nodeFTwo);
 
 	//reingresando los elementos eliminados
-	linkedListOne.PushBack(10);
-	linkedListOne.PushBack(5);
-	linkedListOne.PushBack(3);
-	linkedListOne.PushBack(7);
-	linkedListOne.PushBack(6);
-	linkedListOne.PrintList();
+	linkedListOne->PushBack(10);
+	linkedListOne->PushBack(5);
+	linkedListOne->PushBack(3);
+	linkedListOne->PushBack(7);
+	linkedListOne->PushBack(6);
+	linkedListOne->PrintList();
 
 	//probando e eliminando con PopFront() todos los elementos de la lista
-	linkedListOne.PopFront();
-	linkedListOne.PrintList();
+	linkedListOne->PopFront();
+	linkedListOne->PrintList();
 
-	linkedListOne.PopFront();
-	linkedListOne.PrintList();
+	linkedListOne->PopFront();
+	linkedListOne->PrintList();
 
-	linkedListOne.PopFront();
-	linkedListOne.PrintList();
+	linkedListOne->PopFront();
+	linkedListOne->PrintList();
 
-	linkedListOne.PopFront();
-	linkedListOne.PrintList();
+	linkedListOne->PopFront();
+	linkedListOne->PrintList();
 
-	linkedListOne.PopFront();
-	linkedListOne.PrintList();
+	linkedListOne->PopFront();
+	linkedListOne->PrintList();
 
 	//probando validacion de PopFront() cuando no hay elementos en la lista
-	linkedListOne.PopFront();
-	linkedListOne.PrintList();
+	linkedListOne->PopFront();
+	linkedListOne->PrintList();
 
 	//probando PushFront()
-	linkedListOne.PushFront(10);
-	linkedListOne.PrintList();
+	linkedListOne->PushFront(10);
+	linkedListOne->PrintList();
 
-	linkedListOne.PushFront(5);
-	linkedListOne.PrintList();
+	linkedListOne->PushFront(5);
+	linkedListOne->PrintList();
 
 
-	linkedListOne.PushFront(2);
-	linkedListOne.PrintList();
+	linkedListOne->PushFront(2);
+	linkedListOne->PrintList();
 
 	//probando PushBack()
-	linkedListOne.PushBack(8);
-	linkedListOne.PrintList();
+	linkedListOne->PushBack(8);
+	linkedListOne->PrintList();
 
-	linkedListOne.PushBack(4);
-	linkedListOne.PrintList();
+	linkedListOne->PushBack(4);
+	linkedListOne->PrintList();
 
 	//probando PushFront()
-	linkedListOne.PushFront(27);
-	linkedListOne.PrintList();
+	linkedListOne->PushFront(27);
+	linkedListOne->PrintList();
 
 	//probando PopFront()
-	linkedListOne.PopFront();
-	linkedListOne.PrintList();
+	linkedListOne->PopFront();
+	linkedListOne->PrintList();
 
 	//probando PopBack()
-	linkedListOne.PopBack();
-	linkedListOne.PrintList();
+	linkedListOne->PopBack();
+	linkedListOne->PrintList();
 
 	//eliminando todos los elementos con PopFront()
-	linkedListOne.PopFront();
-	linkedListOne.PopFront();
-	linkedListOne.PopFront();
-	linkedListOne.PopFront();
-	linkedListOne.PrintList();
+	linkedListOne->PopFront();
+	linkedListOne->PopFront();
+	linkedListOne->PopFront();
+	linkedListOne->PopFront();
+	linkedListOne->PrintList();
 
 	//PushBack() y PushFront() test
-	linkedListOne.PushBack(4);
-	linkedListOne.PushFront(10);
-	linkedListOne.PushBack(7);
-	linkedListOne.PushFront(3);
-	linkedListOne.PrintList();
+	linkedListOne->PushBack(4);
+	linkedListOne->PushFront(10);
+	linkedListOne->PushBack(7);
+	linkedListOne->PushFront(3);
+	linkedListOne->PrintList();
+
+	//liberando la memoria del objeto linkedListOne mediante su destructor
+	delete linkedListOne;
 }
 
 //definiciones de los metodos de la clase LinkedList
 template <typename T>
 void LinkedList<T>::PushBack(T data) {
+	size++; //se aumenta el tamano de la lista cada vez que se invoca PushBack ya que siempre PushBack() toma efecto
 	Node<T>* newNode = new Node<T>(); //creando un nuevo nodo de tipo T
 	newNode->data = data;
 
@@ -159,14 +163,13 @@ void LinkedList<T>::PushBack(T data) {
 		last = first;
 
 		first->predecessor = nullptr; //no tiene nodo anterior por ser primero
+		return;
 	}
-	else /*si no esta vacia*/ {
-		last->next = newNode; //el ultimo nodo apunta al nuevo nodo
-		newNode->next = nullptr; // el nuevo nodo apunta a vacio ya que va a ser el ultimo
-		newNode->predecessor = last; //el nodo anterior a newNode va ser el que ya no va a ser ultimo
-		last = newNode; // el nuevo ultimo es newNode
-	}
-	size++; //se aumenta el tamano de la lista cada vez que se invoca PushBack
+	//si la lista no esta vacia, si o si se ejecuta el snippet de abajo:
+	last->next = newNode; //el ultimo nodo apunta al nuevo nodo
+	newNode->next = nullptr; // el nuevo nodo apunta a vacio ya que va a ser el ultimo
+	newNode->predecessor = last; //el nodo anterior a newNode va ser el que ya no va a ser ultimo
+	last = newNode; // el nuevo ultimo es newNode
 }
 
 template <typename T>
@@ -198,7 +201,6 @@ void LinkedList<T>::PopBack() {
 		Node<T>* copyLast = last; //copyLast es un apuntador auxilar para actualizar quien es el ultimo
 		last = copyLast->predecessor; //el nuevo ultimo es el penultimo
 		delete copyLast; //eliminamos el que era anteriormente el ultimo 
-		copyLast = nullptr; // para evitar que copyLast apunte a una localidad de memoria invalida
 		last->next = nullptr; //el siguiente nodo del nuevo ultimo nodo es nada
 		size--; //reducir la cuenta del tamano de la lista ligada una unidad 
 	}
@@ -259,7 +261,6 @@ void LinkedList<T>::PopFront() {
 	}
 
 	delete oldFirst;
-	oldFirst = nullptr;
 }
 
 

@@ -23,6 +23,19 @@ class LinkedList {
 			size = 0;
 		}
 
+		~LinkedList() {
+			Node<T>* iterator = first;
+			if (iterator == nullptr)
+				return;
+
+			Node<T>* aux = nullptr;
+			while (iterator != nullptr) {
+				aux = iterator->next; //necesitamos un auxiliar ya que el iterador se elimina y no hay manera de accesar al siguiente si no fuera por el auxilar
+				delete iterator;
+				iterator = aux;
+			}
+		}
+
 		void PushBack(T data);
 		void PrintList();
 		void PopBack();

@@ -9,97 +9,102 @@ int moveCount = 0; //global variable for counting the moves done by Move()
 
 //Main program of dynamic Array 
 void Dynamic() {
-	DynamicArray<int> arrOne;
-	PrintArray(arrOne.GetArray(), arrOne.GetCapacity());
+	DynamicArray<int>* arrOne = new DynamicArray<int>();
+	PrintArray(arrOne->GetArray(), arrOne->GetCapacity());
 
-	arrOne.PushBack(1);
-	PrintArray(arrOne.GetArray(), arrOne.GetCapacity());
+	arrOne->PushBack(1);
+	PrintArray(arrOne->GetArray(), arrOne->GetCapacity());
 
-	arrOne.PushBack(4);
-	PrintArray(arrOne.GetArray(), arrOne.GetCapacity());
+	arrOne->PushBack(4);
+	PrintArray(arrOne->GetArray(), arrOne->GetCapacity());
 
-	arrOne.PushBack(9);
-	PrintArray(arrOne.GetArray(), arrOne.GetCapacity());
+	arrOne->PushBack(9);
+	PrintArray(arrOne->GetArray(), arrOne->GetCapacity());
 
-	arrOne.PushBack(14);
-	PrintArray(arrOne.GetArray(), arrOne.GetCapacity());
+	arrOne->PushBack(14);
+	PrintArray(arrOne->GetArray(), arrOne->GetCapacity());
 
-	arrOne.PushBack(7);
-	PrintArray(arrOne.GetArray(), arrOne.GetCapacity());
+	arrOne->PushBack(7);
+	PrintArray(arrOne->GetArray(), arrOne->GetCapacity());
 
-	arrOne.PushBack(9);
-	PrintArray(arrOne.GetArray(), arrOne.GetCapacity());
+	arrOne->PushBack(9);
+	PrintArray(arrOne->GetArray(), arrOne->GetCapacity());
 
-	arrOne.PushBack(3);
-	PrintArray(arrOne.GetArray(), arrOne.GetCapacity());
+	arrOne->PushBack(3);
+	PrintArray(arrOne->GetArray(), arrOne->GetCapacity());
 
-	arrOne.PushBack(10);
-	PrintArray(arrOne.GetArray(), arrOne.GetCapacity());
+	arrOne->PushBack(10);
+	PrintArray(arrOne->GetArray(), arrOne->GetCapacity());
 
-	arrOne.PushBack(24);
-	PrintArray(arrOne.GetArray(), arrOne.GetCapacity());
+	arrOne->PushBack(24);
+	PrintArray(arrOne->GetArray(), arrOne->GetCapacity());
 
-	cout << "Last element: " << arrOne.GetArray()[8] << endl;
+	cout << "Last element: " << arrOne->GetArray()[8] << endl;
 
-	arrOne.PopBack();
-	PrintArray(arrOne.GetArray(), arrOne.GetCapacity());
+	arrOne->PopBack();
+	PrintArray(arrOne->GetArray(), arrOne->GetCapacity());
 
-	arrOne.PopBack();
-	arrOne.PopBack();
-	arrOne.PopBack();
-	arrOne.PopBack();
-	PrintArray(arrOne.GetArray(), arrOne.GetCapacity());
+	arrOne->PopBack();
+	arrOne->PopBack();
+	arrOne->PopBack();
+	arrOne->PopBack();
+	PrintArray(arrOne->GetArray(), arrOne->GetCapacity());
 
-	arrOne.ShrinkToFit();
-	PrintArray(arrOne.GetArray(), arrOne.GetCapacity());
+	arrOne->ShrinkToFit();
+	PrintArray(arrOne->GetArray(), arrOne->GetCapacity());
 
-	arrOne.PopBack();
-	arrOne.PopBack();
-	arrOne.PopBack();
-	arrOne.PopBack();
-	PrintArray(arrOne.GetArray(), arrOne.GetCapacity());
+	arrOne->PopBack();
+	arrOne->PopBack();
+	arrOne->PopBack();
+	arrOne->PopBack();
+	PrintArray(arrOne->GetArray(), arrOne->GetCapacity());
 
-	arrOne.PopBack();
-	arrOne.PopBack();
-	arrOne.PopBack();
-	arrOne.PopBack();
+	arrOne->PopBack();
+	arrOne->PopBack();
+	arrOne->PopBack();
+	arrOne->PopBack();
 
-	arrOne.PushBack(1);
-	arrOne.PushBack(4);
-	arrOne.PushBack(9);
-	arrOne.PushBack(14);
-	PrintArray(arrOne.GetArray(), arrOne.GetCapacity());
+	arrOne->PushBack(1);
+	arrOne->PushBack(4);
+	arrOne->PushBack(9);
+	arrOne->PushBack(14);
+	PrintArray(arrOne->GetArray(), arrOne->GetCapacity());
 
-	arrOne.PushBack(7);
-	arrOne.PushBack(4);
-	arrOne.PushBack(9);
-	arrOne.PushBack(14);
-	PrintArray(arrOne.GetArray(), arrOne.GetCapacity());
+	arrOne->PushBack(7);
+	arrOne->PushBack(4);
+	arrOne->PushBack(9);
+	arrOne->PushBack(14);
+	PrintArray(arrOne->GetArray(), arrOne->GetCapacity());
 
-	arrOne.PushBack(7);
-	PrintArray(arrOne.GetArray(), arrOne.GetCapacity());
+	arrOne->PushBack(7);
+	PrintArray(arrOne->GetArray(), arrOne->GetCapacity());
 
-	arrOne.ShrinkToFit();
-	PrintArray(arrOne.GetArray(), arrOne.GetCapacity());
+	arrOne->ShrinkToFit();
+	PrintArray(arrOne->GetArray(), arrOne->GetCapacity());
 
-	DynamicArray<string> arrTwo;
-	arrTwo.PushBack("Hello");
-	PrintArray(arrTwo.GetArray(), arrTwo.GetCapacity());
+	DynamicArray<string>* arrTwo = new DynamicArray<string>();
+	arrTwo->PushBack("Hello");
+	PrintArray(arrTwo->GetArray(), arrTwo->GetCapacity());
 	
-	arrTwo.PopBack();
-	PrintArray(arrTwo.GetArray(), arrTwo.GetCapacity());
+	arrTwo->PopBack();
+	PrintArray(arrTwo->GetArray(), arrTwo->GetCapacity());
 
-	arrTwo.PopBack();
+	arrTwo->PopBack();
 
-	DynamicArray<bool> arrThree;
-	PrintArray(arrThree.GetArray(), arrThree.GetCapacity());
+	DynamicArray<bool>* arrThree = new DynamicArray<bool>();
+	PrintArray(arrThree->GetArray(), arrThree->GetCapacity());
 
-	DynamicArray<char> arrFour;
-	PrintArray(arrFour.GetArray(), arrFour.GetCapacity());
+	DynamicArray<char>* arrFour = new DynamicArray<char>();;
+	PrintArray(arrFour->GetArray(), arrFour->GetCapacity());
 
 	#if MOVES 1
-	cout << "Total moves, i.e., individual element copies, done by the Move() method throughout the program: " << moveCount << endl;
+	cout << "Total moves done by the Move() method throughout the program: " << moveCount << endl;
 	#endif
+
+	delete arrOne;
+	delete arrTwo;
+	delete arrThree;
+	delete arrFour;
 }
 
 //definition of major methods of DynamicArray class
